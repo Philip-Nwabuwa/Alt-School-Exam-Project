@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import App from "./App";
-import Page404 from "./Pages/page404";
+import Page404 from "./Pages/Page404";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,29 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-const URL = "https://api.github.com/users/Philip-Nwabuwa/repos";
+import { MagnifyingGlass } from "react-loader-spinner";
+import Navbar from "../Components/navBar";
+import Paginate from "../Components/paginate";
 
 const ListOfRepos = () => {
   const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const URL = `https://api.github.com/users/Philip-Nwabuwa/repos`;
 
   useEffect(() => {
     axios.get(URL).then((response) => {
       setRepos(response.data);
+      setLoading(false);
     });
   }, []);
 
-  // console.log(repos);
-
-  return (
-    <div className="flex text-center justify-center">
-      <div className="grid grid-cols-1 gap-4 pt-4">
-        <h1>List of my Repos</h1>
-        <ul>
-          {repos.map((repo) => {
-            return <li key={repo.id}>{repo.name}</li>;
-          })}
-        </ul>
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <MagnifyingGlass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="MagnifyingGlass-loading"
+          wrapperStyle={{}}
+          wrapperClass="MagnifyingGlass-wrapper"
+          glassColor="#c0efff"
+          color="#e15b64"
+          delay={5000}
+        />
       </div>
+    );
+  }
+  return (
+    <div>
+      <Navbar />
+      <Paginate data={repos} />
     </div>
   );
 };
