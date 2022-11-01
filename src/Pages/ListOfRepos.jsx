@@ -15,13 +15,15 @@ const ListOfRepos = () => {
   // console.log(repos);
 
   return (
-    <div>
-      <h1>List of my Repos</h1>
-      <ul>
-        {repos.map((repo) => {
-          return <li key={repo.id}>{repo.name}</li>;
-        })}
-      </ul>
+    <div className="flex text-center justify-center">
+      <div className="grid grid-cols-1 gap-4 pt-4">
+        <h1>List of my Repos</h1>
+        <ul>
+          {repos.map((repo) => {
+            return <li key={repo.id}>{repo.name}</li>;
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
