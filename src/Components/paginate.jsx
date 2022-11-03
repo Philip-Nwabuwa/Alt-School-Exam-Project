@@ -8,7 +8,6 @@ const paginate = (props) => {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 3;
-  console.log(data);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -32,7 +31,7 @@ const paginate = (props) => {
             className="bg-[#1b1b1b] p-4 item-center justify-center w-[60%] rounded-md"
             key={repos.id}
           >
-            <Link params={{ data: { repos } }} to={`/repo/${repos.id} `}>
+            <Link to={`/repo/${repos.id}`} state={repos}>
               <h1 className="text-xl font-bold">
                 {repos.name}-{repos.id}
               </h1>

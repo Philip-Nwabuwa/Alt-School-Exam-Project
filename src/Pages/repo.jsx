@@ -11,7 +11,11 @@ const ListOfRepos = () => {
   const URL = `https://api.github.com/users/Philip-Nwabuwa/repos`;
 
   useEffect(() => {
-    axios.get(URL).then((response) => {
+    axios({
+      method: "get",
+      url: URL,
+      auth: "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",
+    }).then((response) => {
       setRepos(response.data);
       setLoading(false);
     });

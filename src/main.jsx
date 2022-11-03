@@ -12,7 +12,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        {/* <Route path="/repo/:id" element={<RepoId />} /> */}
         <Route exact path="/repo/:repoId" element={<RepoId />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
