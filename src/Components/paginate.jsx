@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
+import { Link } from "react-router-dom";
 
 const paginate = (props) => {
   const { data } = props;
@@ -7,6 +8,7 @@ const paginate = (props) => {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 3;
+  console.log(data);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -21,8 +23,8 @@ const paginate = (props) => {
 
   return (
     <>
-      <h1 className="text-2xl text-center justify-center font-bold pt-14 pb-3">
-        List of Repos
+      <h1 className="text-2xl text-center justify-center font-bold pt-10 pb-5">
+        List of Repos by {data[0].owner.login}
       </h1>
       <div className="grid grid-cols-1 gap-4 items-center justify-center">
         {repos.map((repos) => (
@@ -30,9 +32,11 @@ const paginate = (props) => {
             className="bg-[#1b1b1b] p-4 item-center justify-center w-[60%] rounded-md"
             key={repos.id}
           >
-            <h1 className="text-xl font-bold">
-              {repos.name}-{repos.id}
-            </h1>
+            <Link params={{ data: { repos } }} to={`/repo/${repos.id} `}>
+              <h1 className="text-xl font-bold">
+                {repos.name}-{repos.id}
+              </h1>
+            </Link>
           </div>
         ))}
       </div>

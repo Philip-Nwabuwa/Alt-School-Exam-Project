@@ -1,12 +1,12 @@
 import React from "react";
-import ListOfRepos from "./Pages/ListOfRepos";
+import Repo from "./Pages/repo";
 import ErrorBoundary from "./Components/errorBoundary";
 
 const App = () => {
   return (
     <div className="bg-[#242424] text-white">
       <ErrorBoundary>
-        <ListOfRepos />
+        <Repo />
       </ErrorBoundary>
     </div>
   );

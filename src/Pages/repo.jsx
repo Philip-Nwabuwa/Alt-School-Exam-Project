@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { MagnifyingGlass } from "react-loader-spinner";
+import { InfinitySpin } from "react-loader-spinner";
 import Navbar from "../Components/navBar";
 import Paginate from "../Components/paginate";
+import Footer from "../Components/footer";
 
 const ListOfRepos = () => {
   const [repos, setRepos] = useState([]);
@@ -19,17 +20,7 @@ const ListOfRepos = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <MagnifyingGlass
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="MagnifyingGlass-loading"
-          wrapperStyle={{}}
-          wrapperClass="MagnifyingGlass-wrapper"
-          glassColor="#c0efff"
-          color="#e15b64"
-          delay={5000}
-        />
+        <InfinitySpin width="200" color="#fff" />
       </div>
     );
   }
@@ -37,6 +28,7 @@ const ListOfRepos = () => {
     <div>
       <Navbar />
       <Paginate data={repos} />
+      <Footer />
     </div>
   );
 };
