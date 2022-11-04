@@ -40,7 +40,7 @@ const singleRepo = () => {
       </Helmet>
       <Navbar />
       <ErrorBoundary>
-        <div className=" bg-[#242424] text-white h-screen pt-24 items-center justify-center">
+        <div className=" bg-[#242424] text-white h-screen pt-20 items-center justify-center">
           <div className="flex flex-col items-center justify-center font-bold">
             <h1 className="mb-6 text-2xl">
               Repo by {location.state.owner.login}
@@ -50,8 +50,8 @@ const singleRepo = () => {
               title={location.state.owner.login}
               alt="Owner"
               className="rounded-2xl"
-              width={200}
-              height={200}
+              width={100}
+              height={100}
             />
             <h2 className="text-2xl font-bold text-white mt-5">
               {location.state.name}
@@ -63,13 +63,12 @@ const singleRepo = () => {
           <div className="flex flex-col items-center justify-center">
             <p>Stars: {location.state.stargazers_count}</p>
             <p>Forks: {location.state.forks_count}</p>
-            <p>Watchers: {location.state.watchers_count}</p>
             <p>Open Issues: {location.state.open_issues_count}</p>
             <p>
               last updated: {new Date(location.state.updated_at).toDateString()}
             </p>
-            <div className="inline items-center justify-center">
-              <button className="mt-6 mx-2 py-2 px-12 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
+            <div className="md:inline flex-col items-center justify-center">
+              <button className="mt-6 mx-2 py-1 px-12 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
                 <a
                   rel="canonical"
                   href={location.state.html_url}
@@ -78,7 +77,7 @@ const singleRepo = () => {
                   View on Github
                 </a>
               </button>
-              <button className="mt-3 mx-2 py-2 px-12 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
+              <button className="mt-3 mx-2 py-1 px-12 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
                 <a rel="canonical" href="/">
                   Go Back
                 </a>

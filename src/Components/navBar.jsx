@@ -3,13 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const navBar = (props) => {
-  const { data } = props;
-  const [repos, setRepos] = useState([]);
   const [nav, setNav] = useState(false);
-
-  const fun = () => {
-    document.getElementById("newFeature").style.display = "none";
-  };
 
   const handleNav = () => {
     setNav(!nav);
@@ -88,15 +82,6 @@ const navBar = (props) => {
               </Link>
             </ul>
           </div>
-        </div>
-      </div>
-      <div>
-        <div
-          id="newFeature"
-          onClick={fun}
-          className="flex justify-center items-center bg-red-400 w-full h-full"
-        >
-          new feature&nbsp;<span>Search Param</span>&nbsp;coming soon
         </div>
       </div>
     </nav>
