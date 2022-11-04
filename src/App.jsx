@@ -4,7 +4,7 @@ import ErrorBoundary from "./Components/errorBoundary";
 
 const App = () => {
   return (
-    <div className="bg-[#242424] text-white">
+    <div className="bg-[#242424] text-white min-h-screen">
       <ErrorBoundary>
         <Repo />
       </ErrorBoundary>

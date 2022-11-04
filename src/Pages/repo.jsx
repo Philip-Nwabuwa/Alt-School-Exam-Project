@@ -14,7 +14,7 @@ const ListOfRepos = () => {
     axios({
       method: "get",
       url: URL,
-      auth: "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",
+      auth: "",
     }).then((response) => {
       setRepos(response.data);
       setLoading(false);

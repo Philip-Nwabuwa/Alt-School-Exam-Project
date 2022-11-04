@@ -22,22 +22,29 @@ const paginate = (props) => {
 
   return (
     <>
-      <h1 className="text-2xl text-center justify-center font-bold pt-10 pb-5">
+      <h1 className="text-2xl text-center justify-center font-bold pt-24 pb-5">
         List of Repos by {data[0].owner.login}
       </h1>
-      <div className="grid grid-cols-1 gap-4 items-center justify-center">
-        {repos.map((repos) => (
-          <div
-            className="bg-[#1b1b1b] p-4 item-center justify-center w-[60%] rounded-md"
-            key={repos.id}
-          >
-            <Link to={`/repo/${repos.id}`} state={repos}>
-              <h1 className="text-xl font-bold">
-                {repos.name}-{repos.id}
-              </h1>
-            </Link>
-          </div>
-        ))}
+      <div className="w-full">
+        <div className="flex flex-col justify-between items-center w-full h-full px-2 2xl:px-16">
+          {repos.map((repos) => (
+            <div
+              className="bg-[#1b1b1b] flex md:p-6 p-4 m-4 items-center justify-between md:w-[80%] w-[90%] rounded-md"
+              key={repos.id}
+            >
+              <h2 className="text-xl font-bold">
+                Name: {repos.name}
+                <br />
+                ID: {repos.id}
+              </h2>
+              <Link to={`/repo/${repos.id}`} state={repos}>
+                <button className="text-[#1b1b1b] bg-white font-bold py-2 px-4 rounded-xl">
+                  View Repo
+                </button>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
       <ReactPaginate
         breakLabel="..."
@@ -47,7 +54,7 @@ const paginate = (props) => {
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
-        containerClassName="flex justify-center items-center py-5"
+        containerClassName="flex justify-center items-center py-5 text-xl"
         pageClassName="px-2"
         pageLinkClassName="text-[#fff] hover:text-[#c0efff]"
         previousClassName="px-2"
