@@ -4,16 +4,25 @@ import pageError from "../Assets/pageError.svg";
 
 const page404 = () => {
   return (
-    <div>
-      <img src={pageError} alt="" width={250} height={250} />
-      <h1 className="text-2xl font-bold">Opps</h1>
-      <p className="text-xl">Page not found</p>
-      <Link to={"/"}>
-        <button className="bg-[#242424] text-white px-4 py-2 rounded-md mt-4 hover:bg-[#1b1b1b]">
-          Go back
-        </button>
-      </Link>
-    </div>
+    <section className="flex items-center h-screen p-16 dark:bg-gray-900 dark:text-gray-100">
+      <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+        <div className="max-w-md text-center">
+          <img src={pageError} alt="" width={300} height={300} />
+          <p className="text-2xl font-semibold md:text-3xl">
+            Sorry, we couldn't find this page.
+          </p>
+          <p className="mt-4 mb-8 dark:text-gray-400">
+            But dont worry, you can find plenty of other things on our homepage.
+          </p>
+          <Link
+            to="/"
+            className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+          >
+            Back to homepage
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };
 

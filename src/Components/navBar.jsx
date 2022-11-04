@@ -7,6 +7,10 @@ const navBar = (props) => {
   const [repos, setRepos] = useState([]);
   const [nav, setNav] = useState(false);
 
+  const fun = () => {
+    document.getElementById("newFeature").style.display = "none";
+  };
+
   const handleNav = () => {
     setNav(!nav);
   };
@@ -39,7 +43,7 @@ const navBar = (props) => {
         </div>
         <div
           onClick={handleNav}
-          className="cursor-pointer text-red-500 md:hidden"
+          className="cursor-pointer text-[#ffffff] md:hidden"
         >
           <AiOutlineMenu size={25} />
         </div>
@@ -56,43 +60,43 @@ const navBar = (props) => {
               : "fixed left-[-100%] top-0 p-4 pl-5 ease-in duration-500"
           }
         >
-          <div className="z-[100]">
+          <div className="z-[100] pt-5">
             <div className="flex w-full items-center justify-between">
-              <Link to="/" className="pl-8">
+              <Link to="/" className="pl-8 text-2xl">
                 Github Repos
               </Link>
               <div
                 onClick={handleNav}
-                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
+                className="rounded-full p-3 cursor-pointer"
               >
-                <AiOutlineClose />
+                <AiOutlineClose size={25} />
               </div>
             </div>
             <div className="border-b border-gray-300 my-4">
               <p className="w-[85%] md:w-[90%] py-2">
-                Let's build something legendary together
+                List of all my repos on Github
               </p>
             </div>
           </div>
           <div className="py-2 flex flex-col">
             <ul className="uppercase">
-              <Link to="/">
-                <li className="py-3 text-sm">Home</li>
-              </Link>
-              <Link to="/">
-                <li className="py-3 text-sm">About</li>
-              </Link>
-              <Link to="/">
-                <li className="py-3 text-sm">Skills</li>
-              </Link>
-              <Link to="/">
-                <li className="py-3 text-sm">Project</li>
-              </Link>
-              <Link to="/">
-                <li className="py-3 text-sm">Contact</li>
+              <a href="https://docs.github.com/en/rest">
+                <li className="py-3 text-xl">Documentation</li>
+              </a>
+              <Link to="/error">
+                <li className="py-3 text-xl">ErrorBoundary</li>
               </Link>
             </ul>
           </div>
+        </div>
+      </div>
+      <div>
+        <div
+          id="newFeature"
+          onClick={fun}
+          className="flex justify-center items-center bg-red-400 w-full h-full"
+        >
+          new feature&nbsp;<span>Search Param</span>&nbsp;coming soon
         </div>
       </div>
     </nav>

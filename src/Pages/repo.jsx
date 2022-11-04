@@ -14,7 +14,7 @@ const ListOfRepos = () => {
     axios({
       method: "get",
       url: URL,
-      auth: "",
+      auth: "import.meta.env.VITE_GITHUB_TOKEN",
     }).then((response) => {
       setRepos(response.data);
       setLoading(false);

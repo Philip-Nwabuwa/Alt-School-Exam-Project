@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const paginate = (props) => {
   const { data } = props;
@@ -22,14 +23,21 @@ const paginate = (props) => {
 
   return (
     <>
-      <h1 className="text-2xl text-center justify-center font-bold pt-24 pb-5">
+      <Helmet>
+        <title>Philip Nwabuwa | Github Repos</title>
+        <meta
+          name="description"
+          content="Philip Nwabuwa's Github Repositries"
+        />
+      </Helmet>
+      <h1 className="text-2xl text-center justify-center font-bold pt-28 pb-5">
         List of Repos by {data[0].owner.login}
       </h1>
       <div className="w-full">
         <div className="flex flex-col justify-between items-center w-full h-full px-2 2xl:px-16">
           {repos.map((repos) => (
             <div
-              className="bg-[#1b1b1b] flex md:p-6 p-4 m-4 items-center justify-between md:w-[80%] w-[90%] rounded-md"
+              className="bg-[#1b1b1b] block md:flex md:p-6 p-4 m-4 items-center justify-between md:w-[90%] w-[95%] rounded-lg shadow-md"
               key={repos.id}
             >
               <h2 className="text-xl font-bold">
@@ -37,11 +45,13 @@ const paginate = (props) => {
                 <br />
                 ID: {repos.id}
               </h2>
-              <Link to={`/repo/${repos.id}`} state={repos}>
-                <button className="text-[#1b1b1b] bg-white font-bold py-2 px-4 rounded-xl">
-                  View Repo
-                </button>
-              </Link>
+              <div className="mt-6 flex justify-center items-center">
+                <Link rel="canonical" to={`/repo/${repos.id}`} state={repos}>
+                  <button className="text-[#1b1b1b] hover:bg-[#c0efff] bg-white font-bold py-2 px-12 rounded-xl">
+                    View Repo
+                  </button>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
