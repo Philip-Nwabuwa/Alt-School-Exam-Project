@@ -43,9 +43,7 @@ const paginate = (props) => {
               <h2 className="text-xl font-bold">
                 NAME: {repos.name}
                 <br />
-                <div className="block">
-                  REPO{""}ID: {repos.id}
-                </div>
+                <div className="block">REPO &nbsp; ID: {repos.id}</div>
               </h2>
               <div className="md:mt-6 mt-2 flex justify-center items-center">
                 <Link rel="canonical" to={`/repo/${repos.id}`} state={repos}>
