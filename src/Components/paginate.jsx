@@ -30,7 +30,7 @@ const paginate = (props) => {
           content="Philip Nwabuwa's Github Repositries"
         />
       </Helmet>
-      <h1 className="text-2xl text-center justify-center font-bold pt-28 pb-5">
+      <h1 className="text-2xl text-center justify-center font-bold pt-24 pb-2">
         List of Repos by {data[0].owner.login}
       </h1>
       <div className="w-full">
@@ -41,11 +41,13 @@ const paginate = (props) => {
               key={repos.id}
             >
               <h2 className="text-xl font-bold">
-                Name: {repos.name}
+                NAME: {repos.name}
                 <br />
-                ID: {repos.id}
+                <div className="block">
+                  REPO{""}ID: {repos.id}
+                </div>
               </h2>
-              <div className="mt-6 flex justify-center items-center">
+              <div className="md:mt-6 mt-2 flex justify-center items-center">
                 <Link rel="canonical" to={`/repo/${repos.id}`} state={repos}>
                   <button className="text-[#1b1b1b] hover:bg-[#c0efff] bg-white font-bold py-2 px-12 rounded-xl">
                     View Repo
@@ -66,11 +68,11 @@ const paginate = (props) => {
         renderOnZeroPageCount={null}
         containerClassName="flex justify-center items-center py-5 text-xl"
         pageClassName="px-2"
-        pageLinkClassName="text-[#fff] hover:text-[#c0efff]"
+        pageLinkClassName="py-1 text-[#fff] hover:text-[#c0efff]"
         previousClassName="px-2"
-        previousLinkClassName="text-[#fff] hover:text-[#c0efff]"
+        previousLinkClassName="py-1 text-[#fff] hover:text-[#c0efff]"
         nextClassName="px-2"
-        nextLinkClassName="text-[#fff] hover:text-[#c0efff]"
+        nextLinkClassName="py-1 text-[#fff] hover:text-[#c0efff]"
         breakClassName="px-2"
         breakLinkClassName="text-[#fff] hover:text-[#c0efff]"
         activeClassName="text-[#c0efff]"

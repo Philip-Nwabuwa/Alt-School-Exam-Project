@@ -11,11 +11,12 @@ const singleRepo = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const URL = `https://api.github.com/repos/Philip-Nwabuwa/${location.state.name}`;
+  let API_KEY = import.meta.env.VITE_MSG;
   useEffect(() => {
     axios({
       method: "get",
       url: URL,
-      auth: "import.meta.env.VITE_GITHUB_TOKEN",
+      auth: API_KEY,
     }).then(() => {
       setLoading(false);
     });
@@ -40,7 +41,7 @@ const singleRepo = () => {
       </Helmet>
       <Navbar />
       <ErrorBoundary>
-        <div className=" bg-[#242424] text-white h-screen pt-20 items-center justify-center">
+        <div className=" bg-[#242424] text-white h-screen pt-20 md:pt-24 items-center justify-center">
           <div className="flex flex-col items-center justify-center font-bold">
             <h1 className="mb-6 text-2xl">
               Repo by {location.state.owner.login}
@@ -67,21 +68,23 @@ const singleRepo = () => {
             <p>
               last updated: {new Date(location.state.updated_at).toDateString()}
             </p>
-            <div className="md:inline flex-col items-center justify-center">
-              <button className="mt-6 mx-2 py-1 px-12 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
-                <a
-                  rel="canonical"
-                  href={location.state.html_url}
-                  target="_blank"
-                >
-                  View on Github
-                </a>
-              </button>
-              <button className="mt-3 mx-2 py-1 px-12 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
-                <a rel="canonical" href="/">
-                  Go Back
-                </a>
-              </button>
+            <div className="inline items-center justify-center">
+              <div className="flex flex-col md:inline font-bold">
+                <button className="mt-6 mx-2 py-2 md:px-12 px-9 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
+                  <a
+                    rel="canonical"
+                    href={location.state.html_url}
+                    target="_blank"
+                  >
+                    View on Github
+                  </a>
+                </button>
+                <button className="mt-3 mx-2 py-2 md:px-12 px-9 rounded-xl bg-[#ffffff] text-[#1b1b1b] hover:bg-[#c0efff]">
+                  <a rel="canonical" href="/">
+                    Go Back
+                  </a>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 // error bouandary component
 import React from "react";
+import ErrorPage from "../Pages/errorPage";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       // render UI
-      return <h1>Something went wrong.</h1>;
+      return <ErrorPage />;
     }
 
     return this.props.children;
