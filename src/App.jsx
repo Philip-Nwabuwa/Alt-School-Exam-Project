@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Repo from "./Pages/repo";
 import RepoId from "./Pages/repoId";
 import Page404 from "./Pages/page404";
-import ErrorPage from "./Pages/errorPage";
 import ErrorBoundary from "./Components/errorBoundary";
 import "./index.css";
 
@@ -17,7 +16,6 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Repo />} />
               <Route path="/repo/:repoId" element={<RepoId />} />
-              <Route path="/error" element={<ErrorPage />} />
               <Route path="*" element={<Page404 />} />
             </Routes>
           </Router>

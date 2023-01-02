@@ -24,9 +24,12 @@ const singleRepo = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <InfinitySpin width="200" color="#fff" />
-      </div>
+      <>
+        <Navbar />
+        <div className="flex justify-center items-center h-screen">
+          <InfinitySpin width="200" color="#fff" />
+        </div>
+      </>
     );
   }
   return (
