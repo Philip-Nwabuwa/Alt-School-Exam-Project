@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/home";
 import Repo from "./Pages/repo";
 import RepoId from "./Pages/repoId";
 import Page404 from "./Pages/page404";
@@ -14,7 +15,7 @@ const App = () => {
         <ErrorBoundary>
           <Router>
             <Routes>
-              <Route path="/" element={<Repo />} />
+              <Route path="/" element={<Home />} />
               <Route path="/repo/:repoId" element={<RepoId />} />
               <Route path="*" element={<Page404 />} />
             </Routes>

@@ -28,6 +28,15 @@ const navBar = (props) => {
               target="_blank"
               className="p-4"
             >
+              Authors Docs
+            </a>
+          </button>
+          <button>
+            <a
+              href="https://docs.github.com/en/rest"
+              target="_blank"
+              className="p-4"
+            >
               Github Docs
             </a>
           </button>
@@ -65,20 +74,19 @@ const navBar = (props) => {
             </div>
             <div className="border-b border-gray-300 my-4">
               <p className="w-[85%] md:w-[90%] py-2">
-                List of all my repos on Github
-              </p>
-              <p className="w-[85%] md:w-[90%] py-2">
-                <span>
-                  <p className="font-bold text-xl">Search Params</p>
-                </span>
-                &nbsp;feature coming soon
+                List of repos on Github 2.1
               </p>
             </div>
           </div>
           <div className="py-2 flex flex-col">
             <ul className="uppercase">
-              <li className="py-3 text-xl">
-                <a href="https://docs.github.com/en/rest">Documentation</a>
+              <li className="py-3 text-xl underline">
+                <a href="https://docs.github.com/en/rest">GitHub Docs</a>
+              </li>
+            </ul>
+            <ul className="uppercase">
+              <li className="py-3 text-xl underline">
+                <a href="https://docs.github.com/en/rest">Author Docs</a>
               </li>
             </ul>
           </div>
