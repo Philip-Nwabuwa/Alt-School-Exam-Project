@@ -24,7 +24,7 @@ const paginate = (props) => {
   return (
     <>
       <Helmet>
-        <title>{data[0].owner.login} "Repos"</title>
+        <title>{data[0].owner.login} Repos</title>
         <meta
           name="description"
           content="Philip Nwabuwa's Github Repositries"
