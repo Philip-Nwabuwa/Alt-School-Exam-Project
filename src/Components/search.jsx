@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { BiSearchAlt } from "react-icons/bi";
 
 const search = () => {
   const [user, setUser] = useState("");
@@ -34,43 +35,40 @@ const search = () => {
           <h1 className="uppercase mb-8">search for any github username</h1>
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col justify-center items-center"
+            className="flex justify-center items-center"
           >
-            <label>
+            <div className="bg-gray-100 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
               <input
-                placeholder="Search for username..."
+                className="bg-transparent text-black font-bold placeholder:text-gray-300 p-2 w-full focus:outline-none"
                 type="text"
-                className="w-[300px] sm:w-[420px] h-10 p-3 mb-1 text-black rounded-md focus:outline-none focus:border-blue-500 border-solid border-2"
+                placeholder="Search for username..."
                 value={user}
                 onChange={(e) => setUser(e.target.value)}
               />
-            </label>
-            {error && (
-              <h5 className="items-center justify-center px-2 py-1 rounded-md bg-red-500">
-                username not found on guthub
-                <p className="pl-[112px]">X</p>
-              </h5>
-            )}
-            <button
-              className="text-black px-4 py-2 mt-2 mb-12 rounded-tl-xl rounded-br-xl font-bold bg-slate-100 w-[100px] hover:bg-slate-300"
-              type="submit"
-            >
-              Search
-            </button>
+              <BiSearchAlt
+                onClick={handleSubmit}
+                className="text-black cursor-pointer"
+                type="submit"
+                size={25}
+              />
+            </div>
           </form>
+          {error && (
+            <h5 className="items-center justify-center px-2 py-1 rounded-md bg-red-500">
+              username not found on guthub
+              <p className="pl-[112px]">X</p>
+            </h5>
+          )}
         </div>
       </div>
       {(loading && <h1 className="text-center">Loading...</h1>) || (
-        <div className="flex justify-center items-center">
+        <div className="grid grid-cols-5 gap-4">
           {repos.map((repo) => (
             <div
               key={repo.id}
               className="flex flex-col justify-center items-center"
             >
               <Link to={`/repo/${user}`} state={{ user: { repos } }}>
-                <span className="my-4">
-                  click the image to view your list of repo
-                </span>
                 <div className="flex w-[250px] justify-center">
                   <img
                     className="w-[150px] h-[150px] rounded-full"
