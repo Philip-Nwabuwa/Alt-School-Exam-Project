@@ -12,6 +12,7 @@ const search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    setUser("");
     axios({
       method: "get",
       url: `https://api.github.com/search/users?q=${user}`,
@@ -37,7 +38,7 @@ const search = () => {
             onSubmit={handleSubmit}
             className="flex justify-center items-center"
           >
-            <div className="bg-gray-100 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
+            <div className="bg-gray-100 rounded-full flex items-center px-2 w-[300px] sm:w-[450px] lg:w-[600px]">
               <input
                 className="bg-transparent text-black font-bold placeholder:text-gray-300 p-2 w-full focus:outline-none"
                 type="text"
@@ -62,22 +63,25 @@ const search = () => {
         </div>
       </div>
       {(loading && <h1 className="text-center">Loading...</h1>) || (
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-[60px] px-[20px]">
           {repos.map((repo) => (
             <div
               key={repo.id}
               className="flex flex-col justify-center items-center"
             >
-              <Link to={`/repo/${user}`} state={{ user: { repos } }}>
-                <div className="flex w-[250px] justify-center">
+              <Link to={`/repo/${repo.login}`} state={{ user: { repos } }}>
+                <div className="flex items-center justify-center">
                   <img
-                    className="w-[150px] h-[150px] rounded-full"
+                    className="w-[100px] h-[100px] rounded-2xl"
                     src={repo.avatar_url}
                     alt="avatar"
                   />
                 </div>
-
-                <h1 className="text-center">{repo.login}</h1>
+                <div className="bg-gray-100 cursor-pointer rounded-xl mt-[5px] w-fit">
+                  <h2 className="text-center text-bold text-black px-2 py-1">
+                    {repo.login}
+                  </h2>
+                </div>
               </Link>
             </div>
           ))}

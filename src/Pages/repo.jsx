@@ -7,9 +7,8 @@ import Paginate from "../Components/paginate";
 import Footer from "../Components/footer";
 import ErrorBoundary from "../Components/errorBoundary";
 
-const ListOfRepos = (props) => {
+const ListOfRepos = () => {
   const location = useLocation();
-  const data = location.state;
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const URL = `https://api.github.com/users/${location.state.user.repos[0].login}/repos`;
