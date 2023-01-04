@@ -4,12 +4,13 @@ import axios from "axios";
 
 const search = () => {
   const [user, setUser] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [repos, setRepos] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios({
       method: "get",
       url: `https://api.github.com/search/users?q=${user}`,
@@ -23,6 +24,8 @@ const search = () => {
         setLoading(false);
       });
   };
+
+  console.log(repos);
 
   return (
     <div>
@@ -58,13 +61,24 @@ const search = () => {
         </div>
       </div>
       {(loading && <h1 className="text-center">Loading...</h1>) || (
-        <div className="flex flex-wrap justify-center items-center">
+        <div className="flex justify-center items-center">
           {repos.map((repo) => (
             <div
               key={repo.id}
               className="flex flex-col justify-center items-center"
             >
               <Link to={`/repo/${user}`} state={{ user: { repos } }}>
+                <span className="my-4">
+                  click the image to view your list of repo
+                </span>
+                <div className="flex w-[250px] justify-center">
+                  <img
+                    className="w-[150px] h-[150px] rounded-full"
+                    src={repo.avatar_url}
+                    alt="avatar"
+                  />
+                </div>
+
                 <h1 className="text-center">{repo.login}</h1>
               </Link>
             </div>
