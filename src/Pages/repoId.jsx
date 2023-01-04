@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 import { InfinitySpin } from "react-loader-spinner";
@@ -24,12 +24,9 @@ const singleRepo = () => {
 
   if (loading) {
     return (
-      <>
-        <Navbar />
-        <div className="flex justify-center items-center h-screen">
-          <InfinitySpin width="200" color="#fff" />
-        </div>
-      </>
+      <div className="flex justify-center items-center h-screen">
+        <InfinitySpin width="200" color="#fff" />
+      </div>
     );
   }
   return (

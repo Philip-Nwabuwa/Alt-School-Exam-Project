@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import { InfinitySpin } from "react-loader-spinner";
 import Navbar from "../Components/navBar";
 import Paginate from "../Components/paginate";
 import Footer from "../Components/footer";
 import ErrorBoundary from "../Components/errorBoundary";
 
-const ListOfRepos = () => {
+const ListOfRepos = (props) => {
+  const location = useLocation();
+  const data = location.state;
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const URL = `https://api.github.com/users/Philip-Nwabuwa/repos`;
+  const URL = `https://api.github.com/users/${location.state.user.repos[0].login}/repos`;
   let API_KEY = import.meta.env.VITE_MSG;
+
+  console.log(data.login);
+  console.log(location.state.user.repos[0].login, "location");
 
   useEffect(() => {
     axios({
