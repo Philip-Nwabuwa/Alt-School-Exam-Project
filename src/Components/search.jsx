@@ -24,9 +24,6 @@ const search = () => {
       });
   };
 
-  console.log(repos);
-  console.log(user);
-
   return (
     <div>
       <div className="flex pt-24 justify-center items-center">
@@ -67,7 +64,7 @@ const search = () => {
               key={repo.id}
               className="flex flex-col justify-center items-center"
             >
-              <Link to={`/repo`} state={{ user: { repos } }}>
+              <Link to={`/repo/${user}`} state={{ user: { repos } }}>
                 <h1 className="text-center">{repo.login}</h1>
               </Link>
             </div>

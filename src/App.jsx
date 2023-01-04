@@ -16,8 +16,8 @@ const App = () => {
           <Router>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/repo" element={<Repo />} />
-              <Route path="/repo/:repoId" element={<RepoId />} />
+              <Route path="/repo/:user" element={<Repo />} />
+              <Route path="/repo/:user/:repoId" element={<RepoId />} />
               <Route path="*" element={<Page404 />} />
             </Routes>
           </Router>

@@ -10,8 +10,6 @@ const paginate = (props) => {
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 3;
 
-  console.log(data);
-
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
     setRepos(data.slice(itemOffset, endOffset));
@@ -26,7 +24,7 @@ const paginate = (props) => {
   return (
     <>
       <Helmet>
-        <title>Philip Nwabuwa | Github Repos</title>
+        <title>{data[0].owner.login} "Repos"</title>
         <meta
           name="description"
           content="Philip Nwabuwa's Github Repositries"
@@ -48,7 +46,11 @@ const paginate = (props) => {
                 <div className="block">REPO &nbsp; ID: {repos.id}</div>
               </h2>
               <div className="md:mt-6 mt-2 flex justify-center items-center">
-                <Link rel="canonical" to={`/repo/${repos.id}`} state={repos}>
+                <Link
+                  rel="canonical"
+                  to={`/repo/${data[0].owner.login}/${repos.id}`}
+                  state={repos}
+                >
                   <button className="text-[#1b1b1b] hover:bg-[#c0efff] bg-white font-bold py-2 px-12 rounded-xl">
                     View Repo
                   </button>

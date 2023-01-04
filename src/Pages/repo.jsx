@@ -15,9 +15,6 @@ const ListOfRepos = (props) => {
   const URL = `https://api.github.com/users/${location.state.user.repos[0].login}/repos`;
   let API_KEY = import.meta.env.VITE_MSG;
 
-  console.log(data.login);
-  console.log(location.state.user.repos[0].login, "location");
-
   useEffect(() => {
     axios({
       method: "get",

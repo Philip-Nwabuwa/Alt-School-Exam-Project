@@ -10,7 +10,7 @@ import Footer from "../Components/footer";
 const singleRepo = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
-  const URL = `https://api.github.com/repos/Philip-Nwabuwa/${location.state.name}`;
+  const URL = `https://api.github.com/repos/${location.state.owner.login}/${location.state.name}`;
   let API_KEY = import.meta.env.VITE_MSG;
   useEffect(() => {
     axios({
@@ -21,6 +21,8 @@ const singleRepo = () => {
       setLoading(false);
     });
   }, []);
+
+  console.log(location.state);
 
   if (loading) {
     return (
