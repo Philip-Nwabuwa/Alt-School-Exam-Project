@@ -28,7 +28,6 @@ const ListOfRepos = () => {
   if (loading) {
     return (
       <>
-        <Navbar />
         <div className="flex justify-center items-center h-screen">
           <InfinitySpin width="200" color="#fff" />
         </div>
@@ -38,11 +37,9 @@ const ListOfRepos = () => {
   return (
     <>
       <ErrorBoundary>
-        <Navbar />
-        <div>
+        <div className="main">
           <Paginate data={repos} />
         </div>
-        <Footer />
       </ErrorBoundary>
     </>
   );

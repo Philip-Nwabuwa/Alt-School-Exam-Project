@@ -4,8 +4,6 @@ import axios from "axios";
 import { InfinitySpin } from "react-loader-spinner";
 import { useLocation } from "react-router-dom";
 import ErrorBoundary from "../Components/errorBoundary";
-import Navbar from "../Components/navBar";
-import Footer from "../Components/footer";
 
 const singleRepo = () => {
   const location = useLocation();
@@ -21,8 +19,6 @@ const singleRepo = () => {
       setLoading(false);
     });
   }, []);
-
-  console.log(location.state);
 
   if (loading) {
     return (
@@ -41,7 +37,6 @@ const singleRepo = () => {
         />
         <link rel="canonical" to={`/repo/:repoId`} />
       </Helmet>
-      <Navbar />
       <ErrorBoundary>
         <div className=" bg-[#242424] text-white h-screen pt-20 md:pt-24 items-center justify-center">
           <div className="flex flex-col items-center justify-center font-bold">
@@ -91,7 +86,6 @@ const singleRepo = () => {
           </div>
         </div>
       </ErrorBoundary>
-      <Footer />
     </div>
   );
 };

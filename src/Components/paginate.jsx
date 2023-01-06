@@ -33,7 +33,7 @@ const paginate = (props) => {
           content="Philip Nwabuwa's Github Repositries"
         />
       </Helmet>
-      <h1 className="text-2xl text-center justify-center font-bold pt-24 pb-2">
+      <h1 className="text-xl md:text-2xl text-center justify-center font-bold pt-24 pb-2">
         List of Repos by {data[0].owner.login}
       </h1>
       <div className="w-full">
@@ -72,13 +72,13 @@ const paginate = (props) => {
         previousLabel="< previous"
         renderOnZeroPageCount={null}
         containerClassName="flex justify-center items-center py-5 text-xl"
-        pageClassName="px-2"
+        pageClassName="px-1 md:px-2"
         pageLinkClassName="text-[#fff] hover:text-[#c0efff]"
-        previousClassName="px-2"
+        previousClassName="px-1 md:px-2"
         previousLinkClassName="text-[#fff] hover:text-[#c0efff]"
-        nextClassName="px-2"
+        nextClassName="px-1 md:px-2"
         nextLinkClassName="text-[#fff] hover:text-[#c0efff]"
-        breakClassName="px-2"
+        breakClassName="px-1 md:px-2"
         breakLinkClassName="text-[#fff] hover:text-[#c0efff]"
         activeClassName="text-[#c0efff]"
       />

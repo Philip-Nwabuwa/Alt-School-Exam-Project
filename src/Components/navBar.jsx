@@ -18,7 +18,7 @@ const navBar = (props) => {
         <Link to="/" className="font-bold text-lg">
           Github Repos{" "}
           <span className="bg-blue-400 border border-blue-400 rounded-md p-1">
-            2.0
+            2.1
           </span>
         </Link>
         <div className="md:block hidden">
