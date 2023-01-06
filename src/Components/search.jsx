@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 import axios from "axios";
+import { InfinitySpin } from "react-loader-spinner";
 import { BiSearchAlt } from "react-icons/bi";
 
 const search = () => {
@@ -8,6 +10,21 @@ const search = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [repos, setRepos] = useState([]);
+  const [data, setData] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 6;
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    setRepos(data.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(data.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, data]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % data.length;
+    setItemOffset(newOffset);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +35,7 @@ const search = () => {
       url: `https://api.github.com/search/users?q=${user}`,
     })
       .then((res) => {
-        setRepos(res.data.items);
+        setData(res.data.items);
         setLoading(false);
       })
       .catch((err) => {
@@ -27,13 +44,13 @@ const search = () => {
       });
   };
 
-  console.log(repos);
-
   return (
     <div>
       <div className="flex pt-24 justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <h1 className="uppercase mb-8">search for any github username</h1>
+          <h1 className="uppercase mb-8 text-[24px]">
+            search for any github username / organization
+          </h1>
           <form
             onSubmit={handleSubmit}
             className="flex justify-center items-center"
@@ -62,23 +79,27 @@ const search = () => {
           )}
         </div>
       </div>
-      {(loading && <h1 className="text-center">Loading...</h1>) || (
+      {(loading && (
+        <div className="flex item-center justify-center mt-[60px]">
+          <InfinitySpin width="200" color="#fff" />
+        </div>
+      )) || (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-[60px] px-[20px]">
           {repos.map((repo) => (
             <div
               key={repo.id}
-              className="flex flex-col justify-center items-center"
+              className="flex flex-col justify-center items-center bg-[#2b2b2b] hover:bg-[#333333] p-[10px] rounded-3xl"
             >
               <Link to={`/repo/${repo.login}`} state={{ user: { repos } }}>
                 <div className="flex items-center justify-center">
                   <img
-                    className="w-[100px] h-[100px] rounded-2xl"
+                    className="w-[100px] h-[100px] rounded-full"
                     src={repo.avatar_url}
                     alt="avatar"
                   />
                 </div>
-                <div className="bg-gray-100 cursor-pointer rounded-xl mt-[5px] w-fit">
-                  <h2 className="text-center text-bold text-black px-2 py-1">
+                <div className="bg-[#242424] cursor-pointer rounded-xl mt-[5px] w-fit">
+                  <h2 className="text-center text-bold text-white px-2 py-1">
                     {repo.login}
                   </h2>
                 </div>
@@ -87,6 +108,25 @@ const search = () => {
           ))}
         </div>
       )}
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+        containerClassName="flex justify-center items-center py-5 text-xl"
+        pageClassName="px-2"
+        pageLinkClassName="text-[#fff] hover:text-[#c0efff]"
+        previousClassName="px-2"
+        previousLinkClassName="text-[#fff] hover:text-[#c0efff]"
+        nextClassName="px-2"
+        nextLinkClassName="text-[#fff] hover:text-[#c0efff]"
+        breakClassName="px-2"
+        breakLinkClassName="text-[#fff] hover:text-[#c0efff]"
+        activeClassName="text-[#c0efff]"
+      />
     </div>
   );
 };

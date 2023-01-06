@@ -21,6 +21,9 @@ const paginate = (props) => {
     setItemOffset(newOffset);
   };
 
+  console.log(repos);
+  console.log(data);
+
   return (
     <>
       <Helmet>
