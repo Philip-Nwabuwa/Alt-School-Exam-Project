@@ -12,3 +12,7 @@
 span {
   font-family: "Dancing Script", cursive;
 }
+
+.main {
+  flex-grow: 1;
+}

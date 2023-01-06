@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 import axios from "axios";
 import { InfinitySpin } from "react-loader-spinner";
 import { BiSearchAlt } from "react-icons/bi";
+import "../index.css";
 
 const search = () => {
   const [user, setUser] = useState("");
@@ -13,7 +14,8 @@ const search = () => {
   const [data, setData] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 6;
+  const itemsPerPage = 10;
+  let API_KEY = import.meta.env.VITE_MSG;
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -29,9 +31,9 @@ const search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setUser("");
     axios({
       method: "get",
+      auth: API_KEY,
       url: `https://api.github.com/search/users?q=${user}`,
     })
       .then((res) => {
@@ -44,15 +46,19 @@ const search = () => {
       });
   };
 
+  console.log(user);
+
   return (
-    <div>
-      <div className="flex pt-24 justify-center items-center">
-        <div className="flex flex-col justify-center items-center">
-          <h1 className="uppercase mb-8 text-[24px]">
-            search for any github username / organization
+    <div className="main">
+      <div className="flex pt-[80px] justify-center items-center">
+        <div className="flex flex-col justify-center text-center items-center">
+          <h1 className="uppercase mb-[20px] text-[24px]">
+            search for any github username{" "}
+            <div className="hidden md:inline">/ organization</div>
           </h1>
           <form
             onSubmit={handleSubmit}
+            onChange={handleSubmit}
             className="flex justify-center items-center"
           >
             <div className="bg-gray-100 rounded-full flex items-center px-2 w-[300px] sm:w-[450px] lg:w-[600px]">
@@ -71,12 +77,6 @@ const search = () => {
               />
             </div>
           </form>
-          {error && (
-            <h5 className="items-center justify-center px-2 py-1 rounded-md bg-red-500">
-              username not found on guthub
-              <p className="pl-[112px]">X</p>
-            </h5>
-          )}
         </div>
       </div>
       {(loading && (
@@ -84,21 +84,21 @@ const search = () => {
           <InfinitySpin width="200" color="#fff" />
         </div>
       )) || (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-[60px] px-[20px]">
+        <div className="grid main grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-[50px] px-[20px]">
           {repos.map((repo) => (
             <div
               key={repo.id}
               className="flex flex-col justify-center items-center bg-[#2b2b2b] hover:bg-[#333333] p-[10px] rounded-3xl"
             >
               <Link to={`/repo/${repo.login}`} state={{ user: { repos } }}>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center text-center justify-center">
                   <img
                     className="w-[100px] h-[100px] rounded-full"
                     src={repo.avatar_url}
                     alt="avatar"
                   />
                 </div>
-                <div className="bg-[#242424] cursor-pointer rounded-xl mt-[5px] w-fit">
+                <div className="bg-[#242424] cursor-pointer text-center rounded-xl mt-[5px]">
                   <h2 className="text-center text-bold text-white px-2 py-1">
                     {repo.login}
                   </h2>
