@@ -49,7 +49,7 @@ const search = () => {
   console.log(user);
 
   return (
-    <div className="main">
+    <div>
       <div className="flex pt-[80px] justify-center items-center">
         <div className="flex flex-col justify-center text-center items-center">
           <h1 className="uppercase mb-[20px] text-[24px]">
@@ -108,25 +108,27 @@ const search = () => {
           ))}
         </div>
       )}
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-        containerClassName="flex justify-center items-center py-5 text-xl"
-        pageClassName="px-2"
-        pageLinkClassName="text-[#fff] hover:text-[#c0efff]"
-        previousClassName="px-2"
-        previousLinkClassName="text-[#fff] hover:text-[#c0efff]"
-        nextClassName="px-2"
-        nextLinkClassName="text-[#fff] hover:text-[#c0efff]"
-        breakClassName="px-2"
-        breakLinkClassName="text-[#fff] hover:text-[#c0efff]"
-        activeClassName="text-[#c0efff]"
-      />
+      <div>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          containerClassName="flex justify-center items-center py-5 mb-10 text-xl"
+          pageClassName="px-2"
+          pageLinkClassName="text-[#fff] hover:text-[#c0efff]"
+          previousClassName="px-2"
+          previousLinkClassName="text-[#fff] hover:text-[#c0efff]"
+          nextClassName="px-2"
+          nextLinkClassName="text-[#fff] hover:text-[#c0efff]"
+          breakClassName="px-2"
+          breakLinkClassName="text-[#fff] hover:text-[#c0efff]"
+          activeClassName="text-[#c0efff]"
+        />
+      </div>
     </div>
   );
 };
