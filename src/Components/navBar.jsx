@@ -24,7 +24,7 @@ const navBar = (props) => {
         <div className="md:block hidden">
           <button>
             <a
-              href="https://docs.github.com/en/rest"
+              href="https://medium.com/@philipnwabuwa/github-repo-2-1-454071ed9841"
               target="_blank"
               className="p-4"
             >
@@ -86,7 +86,9 @@ const navBar = (props) => {
             </ul>
             <ul className="uppercase">
               <li className="py-3 text-xl underline">
-                <a href="https://docs.github.com/en/rest">Author Docs</a>
+                <a href="https://medium.com/@philipnwabuwa/github-repo-2-1-454071ed9841">
+                  Author Docs
+                </a>
               </li>
             </ul>
           </div>

@@ -4,6 +4,7 @@ import {
   AiOutlineTwitter,
   AiOutlineMail,
 } from "react-icons/ai";
+import { BsMedium } from "react-icons/bs";
 
 const footer = () => {
   return (
@@ -31,6 +32,13 @@ const footer = () => {
             alt="Twitter Link"
           >
             <AiOutlineTwitter size={40} className="pr-4 hover:text-[#c0efff]" />
+          </a>
+          <a
+            href="https://medium.com/@philipnwabuwa/github-repo-2-1-454071ed9841"
+            target={"_blank"}
+            alt="Medium Link"
+          >
+            <BsMedium size={40} className="pr-4 hover:text-[#c0efff]" />
           </a>
           <a
             href="mailto: philipnwabuwa@gmail.com"
