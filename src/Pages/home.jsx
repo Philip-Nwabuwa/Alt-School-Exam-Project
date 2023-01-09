@@ -13,7 +13,7 @@ const home = () => {
         />
         <link rel="canonical" to={`/repo/:repoId`} />
       </Helmet>
-      <div className="main">
+      <div>
         <Search />
       </div>
     </>

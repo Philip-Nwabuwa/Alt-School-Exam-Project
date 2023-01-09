@@ -4,11 +4,12 @@ import {
   AiOutlineTwitter,
   AiOutlineMail,
 } from "react-icons/ai";
+import "../footer.css";
 
 const footer = () => {
   return (
-    <footer className="w-full text-[#fff] h-16 md:h-12 absolute bottom-0">
-      <div className="bg-[#1b1b1b] block md:flex md:justify-between items-center border-y border-cyan-50">
+    <footer className="w-full text-[#fff] mt-auto">
+      <div className="bg-[#1b1b1b] h-16 md:h-12 px-6 2xl:px-16 block md:flex md:justify-between items-center border-y border-cyan-50">
         <div className="text-center md:pl-4 font-bold md:inline justify-center">
           Made with{" "}
           <span role="img" aria-label="heart">

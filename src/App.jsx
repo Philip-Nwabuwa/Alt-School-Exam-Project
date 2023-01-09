@@ -12,7 +12,7 @@ import "./index.css";
 const App = () => {
   return (
     <>
-      <div className="bg-[#242424] text-white relative min-h-screen">
+      <div className="bg-[#242424] text-white flex min-h-screen flex-col">
         <ErrorBoundary>
           <Navbar />
 
