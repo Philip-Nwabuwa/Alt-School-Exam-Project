@@ -31,10 +31,7 @@ const singleRepo = () => {
     <div>
       <Helmet>
         <title>{location.state.name}</title>
-        <meta
-          name="description"
-          content="Philip Nwabuwa's Github Repositries"
-        />
+        <meta name="description" content={location.state.name} />
         <link rel="canonical" to={`/repo/:repoId`} />
       </Helmet>
       <ErrorBoundary>

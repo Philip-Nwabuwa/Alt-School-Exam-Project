@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { InfinitySpin } from "react-loader-spinner";
-import Navbar from "../Components/navBar";
 import Paginate from "../Components/paginate";
-import Footer from "../Components/footer";
 import ErrorBoundary from "../Components/errorBoundary";
 
 const ListOfRepos = () => {

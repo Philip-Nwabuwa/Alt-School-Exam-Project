@@ -46,8 +46,6 @@ const search = () => {
       });
   };
 
-  console.log(user);
-
   return (
     <div className="main">
       <div className="flex pt-[80px] justify-center items-center">
@@ -116,7 +114,7 @@ const search = () => {
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
-        containerClassName="flex justify-center items-center py-5 text-xl"
+        containerClassName="flex justify-center items-center py-5 md:mt-4 text-xl"
         pageClassName="px-2"
         pageLinkClassName="text-[#fff] hover:text-[#c0efff]"
         previousClassName="px-2"
