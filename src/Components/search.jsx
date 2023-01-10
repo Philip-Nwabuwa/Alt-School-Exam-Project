@@ -68,6 +68,13 @@ const search = () => {
     e.preventDefault();
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   console.log(data);
 
   return (
@@ -140,6 +147,7 @@ const search = () => {
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
+        onClick={scrollToTop}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
         containerClassName="flex justify-center items-center py-5 md:mt-4 text-xl"
