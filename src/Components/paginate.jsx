@@ -10,6 +10,8 @@ const paginate = (props) => {
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 3;
 
+  console.log(data);
+
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
     setRepos(data.slice(itemOffset, endOffset));

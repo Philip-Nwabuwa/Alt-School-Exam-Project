@@ -6,7 +6,7 @@ const home = () => {
   return (
     <>
       <Helmet>
-        <title>GitHub 2.0</title>
+        <title>GitHub 2.1</title>
         <meta
           name="description"
           content="search for github users and their repositories"
