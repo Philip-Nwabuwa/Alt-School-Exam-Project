@@ -107,6 +107,7 @@ const search = () => {
           </form>
         </div>
       </div>
+
       {loading && (
         <div className="flex item-center justify-center mt-[60px]">
           <InfinitySpin width="200" color="#fff" />
@@ -117,7 +118,6 @@ const search = () => {
           <h1 className="text-[#fff] text-[20px]">No user found</h1>
         </div>
       )}
-
       <ul className="grid main grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-[50px] px-[20px]">
         {repos.map((repo) => (
           <li
